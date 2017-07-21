@@ -1,0 +1,6 @@
+D:\Visual Studio 2017 Projects\HangManGame\HangManGame\bin\Debug\HangManGame.exe.config
+D:\Visual Studio 2017 Projects\HangManGame\HangManGame\bin\Debug\HangManGame.exe
+D:\Visual Studio 2017 Projects\HangManGame\HangManGame\bin\Debug\HangManGame.pdb
+D:\Visual Studio 2017 Projects\HangManGame\HangManGame\obj\Debug\HangManGame.csprojResolveAssemblyReference.cache
+D:\Visual Studio 2017 Projects\HangManGame\HangManGame\obj\Debug\HangManGame.exe
+D:\Visual Studio 2017 Projects\HangManGame\HangManGame\obj\Debug\HangManGame.pdb

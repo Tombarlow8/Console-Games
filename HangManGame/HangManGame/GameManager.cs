@@ -12,16 +12,24 @@ namespace HangManGame
         {
             Game game = new Game();
 
-            if (players == 1)
-            {
-                game.guessWord = GetGuessWord().ToArray();
-            }
-            else if (players == 2)
-            {
-                game.guessWord = PlayerSetGuessWord().ToArray();
-                //TODO better way to hide the multplayer GuessWord form the user
-                Console.WriteLine("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n");
-            }
+            try 
+	        {	        
+		        if (players == 1)
+                {
+                    game.guessWord = GetGuessWord().ToArray();
+                }
+                else if (players == 2)
+                {
+                    game.guessWord = PlayerSetGuessWord().ToArray();
+                    Console.Clear();
+                }
+	        }
+	        catch (Exception) //when methods that should return a string return null
+	        {
+                //TODO write a better exception & message                 
+                Console.WriteLine("Please try again");  
+                OptionsMenu();
+	        }
 
             game.winOrLose = false;
 
@@ -37,8 +45,8 @@ namespace HangManGame
         public string GetGuessWord()
         {
             Random rand = new Random();
-
-            string fpath = @"D:\Visual Studio 2017 Projects\HangManGame\HangManGame\GuessWords\" + GetCatergory() + ".txt";
+            string folder = Directory.GetParent(Directory.GetParent(Directory.GetCurrentDirectory()).FullName).FullName;
+            string fpath = folder + @"\GuessWords\" + GetCatergory() + ".txt";
 
             if (File.Exists(fpath))
             {
@@ -47,14 +55,15 @@ namespace HangManGame
                 return guessWordArray[rand.Next(0, guessWordArray.Length)].Trim();
             }
             else
-            {   //TODO go back to main menu????           
-                return "File Path Not valid";
+            {             
+                return null;                
             }
         }
 
-        //gets the catergory from the user will use this to which text file to use
+        //gets the catergory from the user will use this to state which text file to use
         public string GetCatergory()
         {
+            //TODO look into automatically generating this list (maybe using a dictionary)
             Console.WriteLine("please pick a catergory");
             Console.WriteLine("[1] Cities");
             Console.WriteLine("[2] Countries");
@@ -69,7 +78,6 @@ namespace HangManGame
                 case "2": return "Countries";
                 case "3": return "Films";
                 case "4": return "USA States";
-                //TODO should take you back to GetCategory with a message
                 default: return null;
             }
         }

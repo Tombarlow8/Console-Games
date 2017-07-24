@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Linq;
 using System.IO;
+using System.Collections.Generic;
 
 namespace HangManGame
 {
@@ -8,28 +9,23 @@ namespace HangManGame
     {        
         public int players = 0;
 
+        string folder = Directory.GetParent(Directory.GetParent(Directory.GetCurrentDirectory()).FullName).FullName;
+
+        Dictionary<int,string> catagories = new Dictionary<int, string>();
+
         public void OptionsMenu()
         {
             Game game = new Game();
-
-            try 
-	        {	        
-		        if (players == 1)
-                {
-                    game.guessWord = GetGuessWord().ToArray();
-                }
-                else if (players == 2)
-                {
-                    game.guessWord = PlayerSetGuessWord().ToArray();
-                    Console.Clear();
-                }
-	        }
-	        catch (Exception) //when methods that should return a string return null
-	        {
-                //TODO write a better exception & message                 
-                Console.WriteLine("Please try again");  
-                OptionsMenu();
-	        }
+	        
+		    if (players == 1)
+            {
+                game.guessWord = GetGuessWord().ToArray();
+            }
+            else if (players == 2)
+            {
+                game.guessWord = PlayerSetGuessWord().ToArray();
+                Console.Clear();
+            }
 
             game.winOrLose = false;
 
@@ -45,8 +41,8 @@ namespace HangManGame
         public string GetGuessWord()
         {
             Random rand = new Random();
-            string folder = Directory.GetParent(Directory.GetParent(Directory.GetCurrentDirectory()).FullName).FullName;
-            string fpath = folder + @"\GuessWords\" + GetCatergory() + ".txt";
+
+            string fpath = folder + @"\GuessWords\" + SelectCatergory() + ".txt";
 
             if (File.Exists(fpath))
             {
@@ -61,25 +57,18 @@ namespace HangManGame
         }
 
         //gets the catergory from the user will use this to state which text file to use
-        public string GetCatergory()
+        public string SelectCatergory()
         {
-            //TODO look into automatically generating this list (maybe using a dictionary)
             Console.WriteLine("please pick a catergory");
-            Console.WriteLine("[1] Cities");
-            Console.WriteLine("[2] Countries");
-            Console.WriteLine("[3] Films");
-            Console.WriteLine("[4] USA States");
 
-            string catergory = Console.ReadLine();
-
-            switch (catergory)
+            foreach (KeyValuePair<int, string> pair in catagories)
             {
-                case "1": return "Cities";
-                case "2": return "Countries";
-                case "3": return "Films";
-                case "4": return "USA States";
-                default: return null;
+                Console.WriteLine("[{0}] {1}", pair.Key, pair.Value);
             }
+           
+            int catergory = Convert.ToInt16(Console.ReadLine());
+
+            return catagories[catergory];
         }
       
         public int GetPlayers()
@@ -97,6 +86,19 @@ namespace HangManGame
             Console.WriteLine("Enter the Guess Word Below");
 
             return Console.ReadLine();
+        }
+
+        //Gets the catergories form the GUessWords Folder and adds them to a dictionary
+        public void GetCatergories()
+        {
+            string fpath = folder + @"\GuessWords\";
+            int fileCount = 1;
+
+            foreach (string file in Directory.GetFiles(fpath))
+            {
+                catagories.Add(fileCount, Path.GetFileNameWithoutExtension(string.Format(file)));
+                fileCount++;
+            }
         }
     }
 }

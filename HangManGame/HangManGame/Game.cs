@@ -7,12 +7,15 @@ namespace HangManGame
     public class Game
     {       
         public List<char> guessedLetters = new List<char>();
+       
+        #region Variables      
         public char[] guessWord;
         int incorrectGuesses = 0;
         char guessedLetter;
         bool guessedCorrectly = false;
         public bool winOrLose = false;
-           
+        #endregion
+
         public void Guessing()
         {
             char guessedLetter = PlayerGuess();
@@ -64,7 +67,8 @@ namespace HangManGame
                 winOrLose = true;
                 Console.ForegroundColor = ConsoleColor.Green;
                 Console.WriteLine("\nYOU WIN!!!!!!!!!!!");
-                Console.ForegroundColor = ConsoleColor.White;
+                Console.ForegroundColor = ConsoleColor.White; 
+                
             }
         }
    

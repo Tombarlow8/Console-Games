@@ -4,3 +4,9 @@ D:\Visual Studio 2017 Projects\HangManGame\HangManGame\bin\Debug\HangManGame.pdb
 D:\Visual Studio 2017 Projects\HangManGame\HangManGame\obj\Debug\HangManGame.csprojResolveAssemblyReference.cache
 D:\Visual Studio 2017 Projects\HangManGame\HangManGame\obj\Debug\HangManGame.exe
 D:\Visual Studio 2017 Projects\HangManGame\HangManGame\obj\Debug\HangManGame.pdb
+D:\GitHub\Console-Games\HangManGame\HangManGame\bin\Debug\HangManGame.exe.config
+D:\GitHub\Console-Games\HangManGame\HangManGame\bin\Debug\HangManGame.exe
+D:\GitHub\Console-Games\HangManGame\HangManGame\bin\Debug\HangManGame.pdb
+D:\GitHub\Console-Games\HangManGame\HangManGame\obj\Debug\HangManGame.csprojResolveAssemblyReference.cache
+D:\GitHub\Console-Games\HangManGame\HangManGame\obj\Debug\HangManGame.exe
+D:\GitHub\Console-Games\HangManGame\HangManGame\obj\Debug\HangManGame.pdb

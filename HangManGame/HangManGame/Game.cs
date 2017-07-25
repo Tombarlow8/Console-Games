@@ -67,8 +67,7 @@ namespace HangManGame
                 winOrLose = true;
                 Console.ForegroundColor = ConsoleColor.Green;
                 Console.WriteLine("\nYOU WIN!!!!!!!!!!!");
-                Console.ForegroundColor = ConsoleColor.White; 
-                
+                Console.ForegroundColor = ConsoleColor.White;                
             }
         }
    
@@ -181,6 +180,8 @@ namespace HangManGame
                         Console.WriteLine(@" / \   |");
                         Console.WriteLine("______/|"); 
                         Console.WriteLine("GAME OVER");
+                        Console.ForegroundColor = ConsoleColor.Yellow;
+                        Console.WriteLine("The Answer was {0}",String.Join("",guessWord));
                         winOrLose = true;
                         break;
 

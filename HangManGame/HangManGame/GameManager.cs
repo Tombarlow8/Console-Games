@@ -59,7 +59,7 @@ namespace HangManGame
         //gets the catergory from the user will use this to state which text file to use
         public string SelectCatergory()
         {
-            Console.WriteLine("please pick a catergory");
+            Console.WriteLine("\nplease pick a catergory");
 
             foreach (KeyValuePair<int, string> pair in catagories)
             {

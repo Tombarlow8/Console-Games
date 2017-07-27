@@ -1,19 +1,20 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Linq;
 
 namespace HangManGame
 {
     public class Game
     {       
         public List<char> guessedLetters = new List<char>();
-       
+        
         #region Variables      
         public char[] guessWord;
         int incorrectGuesses = 0;
         char guessedLetter;
         bool guessedCorrectly = false;
-        public bool winOrLose = false;
+        public bool winOrLose = false;       
         #endregion
 
         public void Guessing()
@@ -40,13 +41,12 @@ namespace HangManGame
             }
 
             GuessedSofar();
-
         }
 
-        // prints out the letters guessed so far and unguessed letter appear as "_"
+        // prints out the letters guessed so far and unguessed letters appear as "_"
         public void GuessedSofar()
         {
-            StringBuilder sb = new StringBuilder();          
+            StringBuilder sb = new StringBuilder();
             for (int i = 0; i < guessWord.Length; i++)
             {
                 if (guessedLetters.Contains(guessWord[i]))
@@ -58,7 +58,10 @@ namespace HangManGame
                     sb.Append('_');
                 }                 
             }
+                               
             Console.WriteLine(sb.ToString().ToCharArray());
+
+            PrintGuessedLetters();
 
             string guessWordString = string.Join("", guessWord);
 
@@ -67,11 +70,11 @@ namespace HangManGame
                 winOrLose = true;
                 Console.ForegroundColor = ConsoleColor.Green;
                 Console.WriteLine("\nYOU WIN!!!!!!!!!!!");
-                Console.ForegroundColor = ConsoleColor.White;                
-            }
+                Console.ForegroundColor = ConsoleColor.White;
+            }            
         }
    
-        // takes the user input adds it to the list of already guessed numbers
+        // takes the user input adds it to the list of already guessed letters
         public char PlayerGuess()
         {
             Console.WriteLine("\nGuess a letter");
@@ -82,7 +85,7 @@ namespace HangManGame
             }
             catch (FormatException)
             {
-                Console.WriteLine("Please enter one letter at a time");
+                Console.WriteLine("Please enter one character at a time");
                 PlayerGuess();
             }
 
@@ -190,6 +193,31 @@ namespace HangManGame
             }
 
             Console.ForegroundColor = ConsoleColor.White;
+        }
+
+        public void PrintGuessedLetters()
+        {
+            Console.ForegroundColor = ConsoleColor.Yellow;
+
+            Console.WriteLine("Guessed letters: ");
+
+            foreach (char letter in guessedLetters)
+            {               
+                if (guessWord.Contains(Convert.ToChar(guessedLetter.ToString().ToUpper())) || 
+                    guessWord.Contains(Convert.ToChar(guessedLetter.ToString())))
+                {     
+                    
+                    Console.Write(letter + " ");                   
+                }
+                else if (!guessWord.Contains(Convert.ToChar(guessedLetter.ToString().ToUpper())) ||
+                         !guessWord.Contains(Convert.ToChar(guessedLetter.ToString())))
+                {
+                    Console.Write(letter + " ");
+                }
+            }
+
+            Console.ForegroundColor = ConsoleColor.White;
+
         }
     }
 }

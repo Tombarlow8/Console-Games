@@ -202,24 +202,13 @@ namespace HangManGame
             Console.WriteLine("Guessed letters: ");
 
             //TODO Make it so it print in red for 'incorrect' and green for 'correct' characters
-            //TODO Make it so it only print either the Capitol letter or the lower case version not both.
-            foreach (char letter in guessedLetters)
-            {               
-                if (guessWord.Contains(Convert.ToChar(guessedLetter.ToString().ToUpper())) || 
-                    guessWord.Contains(Convert.ToChar(guessedLetter.ToString())))
-                {     
-                    
-                    Console.Write(letter + " ");                   
-                }
-                else if (!guessWord.Contains(Convert.ToChar(guessedLetter.ToString().ToUpper())) ||
-                         !guessWord.Contains(Convert.ToChar(guessedLetter.ToString())))
-                {
-                    Console.Write(letter + " ");
-                }
+            for (int i = 0; i < guessedLetters.Count;)
+            {
+                Console.Write(guessedLetters[i].ToString().ToUpper() + " ");
+                i += 2;
             }
 
             Console.ForegroundColor = ConsoleColor.White;
-
         }
     }
 }

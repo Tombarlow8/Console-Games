@@ -13,18 +13,35 @@ namespace HangManGame
 
         Dictionary<int,string> catagories = new Dictionary<int, string>();
 
+        public int GetPlayers()
+        {
+            Console.WriteLine("Please select single player or multiplayer");
+            Console.WriteLine("[1] Single pLayer\n[2] Multiplayer");
+
+            players = Convert.ToInt32(Console.ReadLine());
+
+            return players;
+        }
+
         public void OptionsMenu()
         {
             Game game = new Game();
-	        
-		    if (players == 1)
+            try
             {
-                game.guessWord = GetGuessWord().ToArray();
+                if (players == 1)
+                {
+                    game.guessWord = GetGuessWord().ToArray();
+                }
+                else if (players == 2)
+                {
+                    game.guessWord = PlayerSetGuessWord().ToArray();
+                    Console.Clear();
+                }
             }
-            else if (players == 2)
+            catch (Exception)
             {
-                game.guessWord = PlayerSetGuessWord().ToArray();
-                Console.Clear();
+                GetPlayers();
+                OptionsMenu();
             }
 
             game.winOrLose = false;
@@ -51,36 +68,11 @@ namespace HangManGame
                 return guessWordArray[rand.Next(0, guessWordArray.Length)].Trim();
             }
             else
-            {             
+            {
                 return null;                
             }
         }
-
-        //gets the catergory from the user will use this to state which text file to use
-        public string SelectCatergory()
-        {
-            Console.WriteLine("\nplease pick a catergory");
-
-            foreach (KeyValuePair<int, string> pair in catagories)
-            {
-                Console.WriteLine("[{0}] {1}", pair.Key, pair.Value);
-            }
-           
-            int catergory = Convert.ToInt16(Console.ReadLine());
-
-            return catagories[catergory];
-        }
-      
-        public int GetPlayers()
-        {        
-            Console.WriteLine("Please select single player or multiplayer");
-            Console.WriteLine("[1] Single pLayer\n[2] Multiplayer");
-
-            players = Convert.ToInt32(Console.ReadLine());
-
-            return players;
-        }
-        
+     
         public string PlayerSetGuessWord()
         {
             Console.WriteLine("Enter the Guess Word Below");
@@ -98,7 +90,24 @@ namespace HangManGame
             {
                 catagories.Add(fileCount, Path.GetFileNameWithoutExtension(string.Format(file)));
                 fileCount++;
+            }           
+        }
+
+        //gets the catergory from the user will use this to state which text file to use
+        public string SelectCatergory()
+        {
+            Console.WriteLine("\nplease pick a catergory");
+
+            Console.WriteLine("[0] Exit");
+
+            foreach (KeyValuePair<int, string> pair in catagories)
+            {
+                Console.WriteLine("[{0}] {1}", pair.Key, pair.Value);
             }
+          
+            int catergory = Convert.ToInt16(Console.ReadLine());
+
+            return catagories[catergory];
         }
     }
 }

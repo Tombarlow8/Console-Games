@@ -49,7 +49,8 @@ namespace HangManGame
             StringBuilder sb = new StringBuilder();
             for (int i = 0; i < guessWord.Length; i++)
             {
-                if (guessedLetters.Contains(guessWord[i]))
+                if (guessedLetters.Contains(Convert.ToChar(guessWord[i].ToString().ToUpper())) || 
+                        guessedLetters.Contains(guessWord[i]))
                 {
                     sb.Append(guessWord[i]);
                 }
@@ -90,8 +91,8 @@ namespace HangManGame
             }
 
             guessedLetters.Add(guessedLetter);
-            guessedLetters.Add(Convert.ToChar(guessedLetter.ToString().ToUpper()));
-            
+            guessedLetters.Add(Convert.ToChar(guessedLetter.ToString().ToUpper()));         
+                      
             return guessedLetter;
         }
 
@@ -201,11 +202,18 @@ namespace HangManGame
 
             Console.WriteLine("Guessed letters: ");
 
-            //TODO Make it so it print in red for 'incorrect' and green for 'correct' characters
-            for (int i = 0; i < guessedLetters.Count;)
+            for (int i = 0; i < guessedLetters.Count; i += 2) 
             {
-                Console.Write(guessedLetters[i].ToString().ToUpper() + " ");
-                i += 2;
+                if (guessWord.Contains(guessedLetters[i]))
+                {
+                    Console.ForegroundColor = ConsoleColor.Green;
+                    Console.Write(guessedLetters[i].ToString().ToUpper() + " ");
+                }
+                else
+                {
+                    Console.ForegroundColor = ConsoleColor.Red;
+                    Console.Write(guessedLetters[i].ToString().ToUpper() + " ");
+                }                             
             }
 
             Console.ForegroundColor = ConsoleColor.White;

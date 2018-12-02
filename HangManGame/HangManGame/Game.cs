@@ -204,12 +204,12 @@ namespace HangManGame
 
             for (int i = 0; i < guessedLetters.Count; i += 2) 
             {
-                if (guessWord.Contains(guessedLetters[i]) || guessWord.Contains(Convert.ToChar(guessedLetters[i].ToString().ToUpper())))
+                if (guessWord.Contains(guessedLetters[i]) || guessWord.Contains(Convert.ToChar(guessedLetters[i].ToString().ToUpper())) || guessWord.Contains(Convert.ToChar(guessedLetters[i].ToString().ToLower())))
                 {
                     Console.ForegroundColor = ConsoleColor.Green;
                     Console.Write(guessedLetters[i].ToString().ToUpper() + " ");
                 }
-                else
+                else 
                 {
                     Console.ForegroundColor = ConsoleColor.Red;
                     Console.Write(guessedLetters[i].ToString().ToUpper() + " ");

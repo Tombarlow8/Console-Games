@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Text;
 using System.Linq;
@@ -8,7 +8,7 @@ namespace HangManGame
     public class Game
     {       
         public List<char> guessedLetters = new List<char>();
-        
+
         #region Variables      
         public char[] guessWord;
         int incorrectGuesses = 0;
@@ -204,7 +204,7 @@ namespace HangManGame
 
             for (int i = 0; i < guessedLetters.Count; i += 2) 
             {
-                if (guessWord.Contains(guessedLetters[i]))
+                if (guessWord.Contains(guessedLetters[i]) || guessWord.Contains(Convert.ToChar(guessedLetters[i].ToString().ToUpper())))
                 {
                     Console.ForegroundColor = ConsoleColor.Green;
                     Console.Write(guessedLetters[i].ToString().ToUpper() + " ");

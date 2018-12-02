@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Linq;
 using System.IO;
 using System.Collections.Generic;
@@ -13,13 +13,29 @@ namespace HangManGame
 
         Dictionary<int,string> catagories = new Dictionary<int, string>();
 
+        public void Intro()
+        {
+            Console.ForegroundColor = ConsoleColor.Magenta;
+            Console.WriteLine("Welcome to Hangman!!!!");
+            Console.WriteLine("Enter new catergories or addd to existing ones here > " + folder.ToString() + "\\" + " as a .txt file");
+            Console.ForegroundColor = ConsoleColor.White;
+        }
+
         public int GetPlayers()
         {
             Console.WriteLine("Please select single player or multiplayer");
             Console.WriteLine("[1] Single pLayer\n[2] Multiplayer");
 
-            players = Convert.ToInt32(Console.ReadLine());
-
+            try
+            {
+                players = Convert.ToInt32(Console.ReadLine());
+            }
+            catch (FormatException)
+            {
+                Console.WriteLine("Please enter valid option.");
+                GetPlayers();
+            }
+       
             return players;
         }
 
@@ -111,3 +127,4 @@ namespace HangManGame
         }
     }
 }
+

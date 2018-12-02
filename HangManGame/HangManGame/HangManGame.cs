@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 
 namespace HangManGame
 {
@@ -11,13 +11,16 @@ namespace HangManGame
                 
             Console.ForegroundColor = ConsoleColor.White;
 
+            gm.Intro();
+
             gm.GetCatergories();
 
-            gm.players = gm.GetPlayers();   
-            
+            gm.players = gm.GetPlayers();
+               
             gm.OptionsMenu();
 
             Console.ReadLine();
+            
         }
     }
 }

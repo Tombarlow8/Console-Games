@@ -62,6 +62,20 @@ namespace HangManGame
 
             game.winOrLose = false;
 
+            foreach (char letter in game.guessWord)
+            {
+                if (letter == ' ')
+                {
+                    WordHasSpaces = true;
+                }
+            }
+
+            if (WordHasSpaces == true)
+            {
+                game.guessedLetters.Add(' ');
+            }
+
+
             while (!game.winOrLose)
             {                   
                 game.Guessing();

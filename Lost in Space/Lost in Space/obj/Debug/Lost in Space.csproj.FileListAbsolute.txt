@@ -1,0 +1,7 @@
+D:\Visual Studio 2017 Projects\Lost in Space\Lost in Space\bin\Debug\Lost in Space.exe.config
+D:\Visual Studio 2017 Projects\Lost in Space\Lost in Space\bin\Debug\Lost in Space.exe
+D:\Visual Studio 2017 Projects\Lost in Space\Lost in Space\bin\Debug\Lost in Space.pdb
+D:\Visual Studio 2017 Projects\Lost in Space\Lost in Space\obj\Debug\Lost in Space.csproj.CoreCompileInputs.cache
+D:\Visual Studio 2017 Projects\Lost in Space\Lost in Space\obj\Debug\Lost in Space.exe
+D:\Visual Studio 2017 Projects\Lost in Space\Lost in Space\obj\Debug\Lost in Space.pdb
+D:\Visual Studio 2017 Projects\Lost in Space\Lost in Space\obj\Debug\Lost in Space.csprojAssemblyReference.cache

@@ -5,3 +5,10 @@ D:\Visual Studio 2017 Projects\Lost in Space\Lost in Space\obj\Debug\Lost in Spa
 D:\Visual Studio 2017 Projects\Lost in Space\Lost in Space\obj\Debug\Lost in Space.exe
 D:\Visual Studio 2017 Projects\Lost in Space\Lost in Space\obj\Debug\Lost in Space.pdb
 D:\Visual Studio 2017 Projects\Lost in Space\Lost in Space\obj\Debug\Lost in Space.csprojAssemblyReference.cache
+C:\Users\TomBa\source\repos\Tombarlow8\Console-Games\Lost in Space\Lost in Space\obj\Debug\Lost in Space.csprojAssemblyReference.cache
+C:\Users\TomBa\source\repos\Tombarlow8\Console-Games\Lost in Space\Lost in Space\obj\Debug\Lost in Space.csproj.CoreCompileInputs.cache
+C:\Users\TomBa\source\repos\Tombarlow8\Console-Games\Lost in Space\Lost in Space\obj\Debug\Lost in Space.exe
+C:\Users\TomBa\source\repos\Tombarlow8\Console-Games\Lost in Space\Lost in Space\obj\Debug\Lost in Space.pdb
+C:\Users\TomBa\source\repos\Tombarlow8\Console-Games\Lost in Space\Lost in Space\bin\Debug\Lost in Space.exe.config
+C:\Users\TomBa\source\repos\Tombarlow8\Console-Games\Lost in Space\Lost in Space\bin\Debug\Lost in Space.exe
+C:\Users\TomBa\source\repos\Tombarlow8\Console-Games\Lost in Space\Lost in Space\bin\Debug\Lost in Space.pdb

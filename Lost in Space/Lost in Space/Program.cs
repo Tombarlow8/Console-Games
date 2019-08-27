@@ -16,15 +16,16 @@ namespace Lost_in_Space
 
             while (ship.SystemHealthCheck())
             {
-                Console.WriteLine("view ship status Y/N?");                
-                if (Console.ReadLine() == "Y") 
+                Console.WriteLine("view ship status Y/N?");   
+                string answer = Console.ReadLine();
+                if (answer == "Y" || answer == "y" || answer == "Yes" || answer == "yes")
                 {
                     ship.SystemStatusReport();
                 }
-                ship.invokeScenario();            
+                ship.invokeScenario();        
             }
 
-            Console.ReadLine();          
+                 
         }
     }
 }

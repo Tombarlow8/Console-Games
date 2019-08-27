@@ -42,13 +42,12 @@ namespace Lost_in_Space
 
         public void invokeScenario()
         {    
+            //TODO: error when scenarios get whittled down
             int scenarioNumber = rand.Next(0, scenarioCount-1);
             scenarioList[scenarioNumber].Invoke();
             string[] resultStringSplit = scenarios.userResult.Split(null);
             int systemValueModifier = Convert.ToInt16(resultStringSplit[1]);
 
-           
-            //damage = Convert.ToInt16(resultStringSplit[1]);
             if (importantSystems.ContainsKey(resultStringSplit[0]))
             {
                 importantSystems[resultStringSplit[0]] += systemValueModifier;
@@ -65,7 +64,6 @@ namespace Lost_in_Space
 
         void takeDamage()
         {
-
             computerAIstatus = importantSystems["computerAIstatus"];
             lifeSupportStatus = importantSystems["lifeSupportStatus"];
             enginesStatus = importantSystems["enginesStatus"];
@@ -146,7 +144,7 @@ namespace Lost_in_Space
                 }
             }
 
-            return (!tempHealthCheck) ? false :true;
+            return (!tempHealthCheck) ? false : true;
         }
 
         public void SystemScenarioResult(string resultInput)
